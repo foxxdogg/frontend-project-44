@@ -1,6 +1,10 @@
 #!/usr/bin/env node
-import { askNameAndSayHello } from '../src/cli.js';
+import { askName, sayHello } from '../src/cli.js';
 
-console.log('Welcome to the Brain Games!');
-askNameAndSayHello();
+greet('Welcome to the Brain Games!');
+askName();
+sayHello();
 
+function greet(greeting) {
+  console.log(greeting);
+}
