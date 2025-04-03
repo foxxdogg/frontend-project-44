@@ -9,13 +9,13 @@ brain-even:
 publish:
 	npm publish --dry-run
 
-make lint:
+lint:
 	npx eslint . --fix
 
-make pretty:
+pretty:
 	npx prettier --write .
 
-make format: 
+format: 
 	npx prettier --write .
 	npx eslint --fix .
 	
