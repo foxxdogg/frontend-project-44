@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 import { askName, sayHello } from '../src/cli.js';
+import getRightAnswer from '../src/games/even.js';
 import {
   welcomeUser,
   explainRule,
   getRandomNumber,
   askQuestion,
   getAnswer,
-  getRightAnswer,
   isUserRight,
   sayCorrect,
   sayWrong,
   congratulateUser,
-} from '../src/game.js';
+} from '../../../../../src/index.js';
 
 const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 let roundsCount = 3;
