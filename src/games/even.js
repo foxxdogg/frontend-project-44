@@ -1,5 +1,4 @@
 import { askName, sayHello } from '../cli.js';
-
 import {
   welcomeUser,
   explainRule,
