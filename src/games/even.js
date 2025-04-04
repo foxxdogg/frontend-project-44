@@ -25,6 +25,7 @@ function getRightAnswer(number) {
 
 function playGame() {
   const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const maxRandomNumber = 100;
   let roundsCount = 3;
   let hasWon;
   welcomeUser();
@@ -32,7 +33,7 @@ function playGame() {
   sayHello(usersName);
   explainRule(rule);
   while (roundsCount > 0) {
-    const randomNumber = getRandomNumber();
+    const randomNumber = getRandomNumber(maxRandomNumber);
     askQuestion(`Question: ${randomNumber}`);
     const usersAnswer = getAnswer();
     const rightAnswer = getRightAnswer(randomNumber);
