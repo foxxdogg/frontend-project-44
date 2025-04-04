@@ -4,8 +4,8 @@ function welcomeUser() {
   console.log('Welcome to the Brain Games!');
 }
 
-function getRandomNumber() {
-  return Math.trunc(Math.random() * 100);
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * (max + 1));
 }
 
 function explainRule(rule) {
@@ -36,7 +36,7 @@ function congratulateUser(usersName) {
 }
 
 function isUserRight(answer, rightAnswer) {
-  return answer === rightAnswer;
+  return answer.toString() === rightAnswer.toString();
 }
 
 export {
