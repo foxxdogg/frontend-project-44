@@ -39,6 +39,10 @@ function isUserRight(answer, rightAnswer) {
   return answer.toString() === rightAnswer.toString();
 }
 
+function getRandomIndex(array) {
+  return getRandomNumber(0, array.length - 1);
+}
+
 export {
   welcomeUser,
   explainRule,
@@ -49,4 +53,5 @@ export {
   sayCorrect,
   sayWrong,
   congratulateUser,
+  getRandomIndex,
 };

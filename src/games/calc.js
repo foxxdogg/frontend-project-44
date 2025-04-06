@@ -11,8 +11,8 @@ import {
   congratulateUser,
 } from '../index.js';
 
-function getRandomSign(signs) {
-  return signs[getRandomNumber(0, signs.length - 1)];
+function getRandomIndex(array) {
+  return array[getRandomNumber(0, array.length - 1)];
 }
 
 function sum(number1, number2) {
@@ -55,7 +55,7 @@ function playGame() {
   while (roundsCount > 0) {
     const randomNumber1 = getRandomNumber(minRandomNumber, maxRandomNumber);
     const randomNumber2 = getRandomNumber(minRandomNumber, maxRandomNumber);
-    const sign = getRandomSign(signs);
+    const sign = getRandomIndex(signs);
     askQuestion(`Question: ${randomNumber1} ${sign} ${randomNumber2}`);
     const usersAnswer = getAnswer();
     const rightAnswer = getRightAnswer(randomNumber1, randomNumber2, sign);
