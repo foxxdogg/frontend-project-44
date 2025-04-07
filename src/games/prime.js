@@ -12,21 +12,27 @@ import {
   welcomeMessage,
 } from '../index.js';
 
-function isPrime(number) {
-  if (number < 2) return false;
-  if (number === 2 || number === 3) return true;
-  if (number % 2 === 0 || number % 3 === 0) return false;
-
-  for (let i = 5; i <= Math.sqrt(number); i += 1) {
-    if (number % i === 0) {
-      return false;
+function isPrimeNumber(number) {
+  let isPrime = true;
+  if (number < 2) {
+    isPrime = false;
+  } else if (number === 2 || number === 3) {
+    isPrime = true;
+  } else if (number % 2 === 0 || number % 3 === 0) {
+    isPrime = false;
+  } else {
+    for (let i = 5; i <= Math.sqrt(number); i += 1) {
+      if (number % i === 0) {
+        isPrime = false;
+      }
     }
   }
-  return true;
+
+  return isPrime;
 }
 
 function getRightAnswer(number) {
-  const rightAnswer = isPrime(number) ? 'yes' : 'no';
+  const rightAnswer = isPrimeNumber(number) ? 'yes' : 'no';
   return rightAnswer;
 }
 
