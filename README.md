@@ -5,4 +5,4 @@
 [even](https://asciinema.org/a/082UE6z3b4zLWaSJbdqru6d4R)
 [calc](https://asciinema.org/a/xnzBC6jTRdprwXAfQNMSeNUlP)
 [gcd](https://asciinema.org/a/4SpbdV6URRJRtVQElsNLQVBok)
-[progresstion](https://asciinema.org/a/DhJuyYhH3q1XH6OjupEnCde2Q)
+[progression](https://asciinema.org/a/DhJuyYhH3q1XH6OjupEnCde2Q)
