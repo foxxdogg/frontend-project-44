@@ -32,7 +32,6 @@ function getRightAnswer(array, index) {
 }
 
 function playGame() {
-  const progressionLength = 10;
   let roundsCount = 3;
   let hasWon;
   welcomeUser(welcomeMessage);
@@ -42,7 +41,7 @@ function playGame() {
   while (roundsCount > 0) {
     const step = getRandomNumber(1, 10);
     const firstNumber = getRandomNumber(1, 100);
-    const progression = getProgression(firstNumber, step, progressionLength);
+    const progression = getProgression(firstNumber, step, 10);
     const randomIndex = getRandomIndex(progression);
     const rightAnswer = getRightAnswer(progression, randomIndex);
     hideRightAnswer(progression, randomIndex);
@@ -58,9 +57,7 @@ function playGame() {
       roundsCount = 0;
     }
   }
-  if (hasWon) {
-    congratulateUser(usersName);
-  }
+  if (hasWon) congratulateUser(usersName);
 }
 
 export default playGame;

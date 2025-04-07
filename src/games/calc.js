@@ -66,9 +66,7 @@ function playGame() {
       roundsCount = 0;
     }
   }
-  if (hasWon) {
-    congratulateUser(usersName);
-  }
+  if (hasWon) congratulateUser(usersName);
 }
 
 export default playGame;
