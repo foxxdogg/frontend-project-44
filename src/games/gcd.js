@@ -9,6 +9,7 @@ import {
   sayCorrect,
   sayWrong,
   congratulateUser,
+  welcomeMessage,
 } from '../index.js';
 
 function getGreaterNumber(number1, number2) {
@@ -49,7 +50,7 @@ function playGame() {
   const minRandomNumber = 1;
   let roundsCount = 3;
   let hasWon;
-  welcomeUser();
+  welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
   explainRule(rule);

@@ -10,6 +10,7 @@ import {
   sayWrong,
   congratulateUser,
   getRandomIndex,
+  welcomeMessage,
 } from '../index.js';
 
 function getProgression(firstNum, step, length) {
@@ -41,7 +42,7 @@ function playGame() {
   let roundsCount = 3;
   let hasWon;
 
-  welcomeUser();
+  welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
   explainRule(rule);

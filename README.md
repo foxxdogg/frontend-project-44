@@ -6,3 +6,4 @@
 [calc](https://asciinema.org/a/xnzBC6jTRdprwXAfQNMSeNUlP)
 [gcd](https://asciinema.org/a/4SpbdV6URRJRtVQElsNLQVBok)
 [progression](https://asciinema.org/a/DhJuyYhH3q1XH6OjupEnCde2Q)
+[prime](https://asciinema.org/a/7VNqmH42DlUNkojk1MCgoBXq4)

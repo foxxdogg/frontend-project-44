@@ -9,6 +9,7 @@ import {
   sayCorrect,
   sayWrong,
   congratulateUser,
+  welcomeMessage,
 } from '../index.js';
 
 function getRandomIndex(array) {
@@ -48,7 +49,7 @@ function playGame() {
   const maxRandomNumber = 10;
   let roundsCount = 3;
   let hasWon;
-  welcomeUser();
+  welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
   explainRule(rule);

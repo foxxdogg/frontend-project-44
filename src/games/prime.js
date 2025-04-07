@@ -12,20 +12,26 @@ import {
   welcomeMessage,
 } from '../index.js';
 
-function isEven(number) {
-  if (number % 2 === 0) {
-    return true;
+function isPrime(number) {
+  if (number < 2) return false;
+  if (number === 2 || number === 3) return true;
+  if (number % 2 === 0 || number % 3 === 0) return false;
+
+  for (let i = 5; i <= Math.sqrt(number); i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
   }
-  return false;
+  return true;
 }
 
 function getRightAnswer(number) {
-  const rightAnswer = isEven(number) ? 'yes' : 'no';
+  const rightAnswer = isPrime(number) ? 'yes' : 'no';
   return rightAnswer;
 }
 
 function playGame() {
-  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const minRandomNumber = 0;
   const maxRandomNumber = 100;
   let roundsCount = 3;

@@ -1,7 +1,9 @@
 import readlineSync from 'readline-sync';
 
-function welcomeUser() {
-  console.log('Welcome to the Brain Games!');
+const welcomeMessage = 'Welcome to the Brain Games!';
+
+function welcomeUser(welcome) {
+  console.log(welcome);
 }
 
 function getRandomNumber(min, max) {
@@ -54,4 +56,5 @@ export {
   sayWrong,
   congratulateUser,
   getRandomIndex,
+  welcomeMessage,
 };
