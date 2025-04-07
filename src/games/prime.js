@@ -21,11 +21,18 @@ function checkDivisors(number) {
   return true;
 }
 
+function isTwoOrThree(number) {
+  if (number === 2 || number === 3) {
+    return true;
+  }
+  return false;
+}
+
 function isPrimeNumber(number) {
   let isPrime = true;
   if (number < 2) {
     isPrime = false;
-  } else if (number === 2 || number === 3) {
+  } else if (isTwoOrThree(number)) {
     isPrime = true;
   } else if (number % 2 === 0 || number % 3 === 0) {
     isPrime = false;

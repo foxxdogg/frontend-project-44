@@ -39,11 +39,7 @@ function playGame() {
   sayHello(usersName);
   explainRule('What number is missing in the progression?');
   while (roundsCount > 0) {
-    const progression = getProgression(
-      getRandomNumber(1, 100),
-      getRandomNumber(1, 10),
-      10,
-    );
+    const progression = getProgression(getRandomNumber(1, 100), getRandomNumber(1, 10), 10);
     const randomIndex = getRandomIndex(progression);
     const rightAnswer = getRightAnswer(progression, randomIndex);
     hideRightAnswer(progression, randomIndex);
