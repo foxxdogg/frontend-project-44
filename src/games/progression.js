@@ -32,23 +32,16 @@ function getRightAnswer(array, index) {
 }
 
 function playGame() {
-  const rule = 'What number is missing in the progression?';
-  const minFirstNum = 1;
-  const maxFirstNum = 100;
-  const minStep = 1;
-  const maxStep = 10;
   const progressionLength = 10;
-
   let roundsCount = 3;
   let hasWon;
-
   welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
-  explainRule(rule);
+  explainRule('What number is missing in the progression?');
   while (roundsCount > 0) {
-    const step = getRandomNumber(minStep, maxStep);
-    const firstNumber = getRandomNumber(minFirstNum, maxFirstNum);
+    const step = getRandomNumber(1, 10);
+    const firstNumber = getRandomNumber(1, 100);
     const progression = getProgression(firstNumber, step, progressionLength);
     const randomIndex = getRandomIndex(progression);
     const rightAnswer = getRightAnswer(progression, randomIndex);

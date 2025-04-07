@@ -31,17 +31,14 @@ function getRightAnswer(number) {
 }
 
 function playGame() {
-  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const minRandomNumber = 0;
-  const maxRandomNumber = 100;
   let roundsCount = 3;
   let hasWon;
   welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
-  explainRule(rule);
+  explainRule('Answer "yes" if given number is prime. Otherwise answer "no".');
   while (roundsCount > 0) {
-    const randomNumber = getRandomNumber(minRandomNumber, maxRandomNumber);
+    const randomNumber = getRandomNumber(0, 100);
     askQuestion(`Question: ${randomNumber}`);
     const usersAnswer = getAnswer();
     const rightAnswer = getRightAnswer(randomNumber);

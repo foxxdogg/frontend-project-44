@@ -45,18 +45,15 @@ function getRightAnswer(number1, number2) {
 }
 
 function playGame() {
-  const rule = 'Find the greatest common divisor of given numbers.';
-  const maxRandomNumber = 200;
-  const minRandomNumber = 1;
   let roundsCount = 3;
   let hasWon;
   welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
-  explainRule(rule);
+  explainRule('Find the greatest common divisor of given numbers.');
   while (roundsCount > 0) {
-    const randomNumber1 = getRandomNumber(minRandomNumber, maxRandomNumber);
-    const randomNumber2 = getRandomNumber(minRandomNumber, maxRandomNumber);
+    const randomNumber1 = getRandomNumber(1, 200);
+    const randomNumber2 = getRandomNumber(1, 200);
     askQuestion(`Question: ${randomNumber1} ${randomNumber2}`);
     const usersAnswer = getAnswer();
     const rightAnswer = getRightAnswer(randomNumber1, randomNumber2);

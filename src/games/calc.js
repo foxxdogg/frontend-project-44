@@ -43,19 +43,16 @@ function getRightAnswer(number1, number2, sign) {
 }
 
 function playGame() {
-  const rule = 'What is the result of the expression?';
   const signs = ['+', '-', '*'];
-  const minRandomNumber = 0;
-  const maxRandomNumber = 10;
   let roundsCount = 3;
   let hasWon;
   welcomeUser(welcomeMessage);
   const usersName = askName();
   sayHello(usersName);
-  explainRule(rule);
+  explainRule('What is the result of the expression?');
   while (roundsCount > 0) {
-    const randomNumber1 = getRandomNumber(minRandomNumber, maxRandomNumber);
-    const randomNumber2 = getRandomNumber(minRandomNumber, maxRandomNumber);
+    const randomNumber1 = getRandomNumber(0, 10);
+    const randomNumber2 = getRandomNumber(0, 10);
     const sign = getRandomIndex(signs);
     askQuestion(`Question: ${randomNumber1} ${sign} ${randomNumber2}`);
     const usersAnswer = getAnswer();
