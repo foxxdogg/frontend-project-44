@@ -33,7 +33,7 @@ function playGame() {
   sayHello(usersName);
   explainRule(rule);
   while (roundsCount > 0) {
-    const randomNumber = getRandomNumber(0, 100);
+    const randomNumber = getRandomNumber(0, 200);
     askQuestion(`Question: ${randomNumber}`);
     const usersAnswer = getAnswer();
     const rightAnswer = getRightAnswer(randomNumber);
