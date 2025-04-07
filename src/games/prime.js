@@ -21,18 +21,26 @@ function checkDivisors(number) {
   return true;
 }
 
+// function isPrimeNumber(number) {
+//   let isPrime = true;
+//   if (number < 2) {
+//     isPrime = false;
+//   } else if (number === 2 || number === 3) {
+//     isPrime = true;
+//   } else if (number % 2 === 0 || number % 3 === 0) {
+//     isPrime = false;
+//   } else {
+//     isPrime = checkDivisors(number);
+//   }
+//   return isPrime;
+// }
+
 function isPrimeNumber(number) {
-  let isPrime = true;
-  if (number < 2) {
-    isPrime = false;
-  } else if (number === 2 || number === 3) {
-    isPrime = true;
-  } else if (number % 2 === 0 || number % 3 === 0) {
-    isPrime = false;
-  } else {
-    isPrime = checkDivisors(number);
-  }
-  return isPrime;
+  if (number < 2) return false;
+  if (number === 2 || number === 3) return true;
+  if (number % 2 === 0 || number % 3 === 0) return false;
+  if (checkDivisors(number)) return false;
+  return true;
 }
 
 function getRightAnswer(number) {
