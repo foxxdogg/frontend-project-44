@@ -3,6 +3,7 @@ import {
   welcomeUser,
   explainRule,
   getRandomNumber,
+  getRandomIndex,
   askQuestion,
   getAnswer,
   isUserRight,
@@ -12,9 +13,9 @@ import {
   welcomeMessage,
 } from '../index.js';
 
-function getRandomIndex(array) {
-  return array[getRandomNumber(0, array.length - 1)];
-}
+// function getRandomIndex(array) {
+//   return array[getRandomNumber(0, array.length - 1)];
+// }
 
 function sum(number1, number2) {
   return number1 + number2;

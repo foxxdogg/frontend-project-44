@@ -19,26 +19,25 @@ function askQuestion(question) {
 }
 
 function getAnswer() {
-  const answer = readlineSync.question('Your answer: ');
-  return answer;
+  return readlineSync.question('Your answer: ');
 }
 
 function sayCorrect() {
   console.log('Correct!');
 }
 
-function sayWrong(answer, rightAnswer, name) {
+function sayWrong(userAnswer, rightAnswer, userName) {
   console.log(
-    `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`,
+    `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`,
   );
 }
 
-function congratulateUser(usersName) {
-  console.log(`Congratulations, ${usersName}!`);
+function congratulateUser(userName) {
+  console.log(`Congratulations, ${userName}!`);
 }
 
-function isUserRight(answer, rightAnswer) {
-  return answer.toString() === rightAnswer.toString();
+function isUserRight(userAnswer, rightAnswer) {
+  return userAnswer.toString() === rightAnswer.toString();
 }
 
 function getRandomIndex(array) {

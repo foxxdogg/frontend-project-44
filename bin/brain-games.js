@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { askName, sayHello } from '../src/cli.js';
-import { welcomeUser } from '../src/index.js';
+import { welcomeUser, welcomeMessage } from '../src/index.js';
 
-welcomeUser();
-const usersName = askName();
-sayHello(usersName);
+welcomeUser(welcomeMessage);
+const userName = askName();
+sayHello(userName);
