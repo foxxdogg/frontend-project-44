@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+  "collectCoverage": true,
+  "coverageReporters": ["lcov", "text"]
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/foxxdogg/frontend-project-44.git"

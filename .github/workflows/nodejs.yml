@@ -26,6 +26,6 @@ jobs:
         run: npm test -- --coverage --passWithNoTests
 
       - name: Upload coverage to Code Climate
-        run: ./cc-test-reporter after-build --exit-code $?
+        run: ./cc-test-reporter after-build coverage/lcov.info --exit-code $?
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
