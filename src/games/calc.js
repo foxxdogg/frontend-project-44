@@ -1,19 +1,9 @@
-import { askName, sayHello } from '../cli.js';
-import {
-  welcomeUser,
-  explainRule,
-  getRandomNumber,
-  askQuestion,
-  getAnswer,
-  isUserRight,
-  sayCorrect,
-  sayWrong,
-  congratulateUser,
-  welcomeMessage,
-} from '../index.js';
+import { getRandomNumber, runGame, getRandomIndex } from '../index.js';
 
-function getRandomIndex(array) {
-  return array[getRandomNumber(0, array.length - 1)];
+const rule = 'What is the result of the expression?';
+
+function getRandomSign(array) {
+  return array[getRandomIndex(array)];
 }
 
 function sum(number1, number2) {
@@ -38,35 +28,17 @@ function calculate(number1, number2, sign) {
 }
 
 function getRightAnswer(number1, number2, sign) {
-  const rightAnswer = calculate(number1, number2, sign);
-  return rightAnswer;
+  return calculate(number1, number2, sign);
 }
 
-function playGame() {
+function getQuestionAndRightAnswer() {
   const signs = ['+', '-', '*'];
-  let roundsCount = 3;
-  let hasWon;
-  welcomeUser(welcomeMessage);
-  const usersName = askName();
-  sayHello(usersName);
-  explainRule('What is the result of the expression?');
-  while (roundsCount > 0) {
-    const randomNumber1 = getRandomNumber(0, 10);
-    const randomNumber2 = getRandomNumber(0, 10);
-    const sign = getRandomIndex(signs);
-    askQuestion(`Question: ${randomNumber1} ${sign} ${randomNumber2}`);
-    const usersAnswer = getAnswer();
-    const rightAnswer = getRightAnswer(randomNumber1, randomNumber2, sign);
-    hasWon = isUserRight(usersAnswer, rightAnswer);
-    if (hasWon) {
-      sayCorrect();
-      roundsCount -= 1;
-    } else {
-      sayWrong(usersAnswer, rightAnswer, usersName);
-      roundsCount = 0;
-    }
-  }
-  if (hasWon) congratulateUser(usersName);
+  const randomNumber1 = getRandomNumber(0, 10);
+  const randomNumber2 = getRandomNumber(0, 10);
+  const sign = getRandomSign(signs);
+  const question = `${randomNumber1} ${sign} ${randomNumber2}`;
+  const rightAnswer = getRightAnswer(randomNumber1, randomNumber2, sign);
+  return { question, rightAnswer };
 }
 
-export default playGame;
+export default () => runGame(rule, getQuestionAndRightAnswer);

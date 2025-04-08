@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { askName, sayHello } from './cli.js';
 
 const welcomeMessage = 'Welcome to the Brain Games!';
 
@@ -44,16 +45,35 @@ function getRandomIndex(array) {
   return getRandomNumber(0, array.length - 1);
 }
 
+function runGame(rule, getQuestionAndRightAnswer) {
+  let roundsCount = 3;
+  let hasWon;
+  welcomeUser(welcomeMessage);
+  const userName = askName();
+  sayHello(userName);
+  explainRule(rule);
+  while (roundsCount > 0) {
+    const { question, rightAnswer } = getQuestionAndRightAnswer();
+    askQuestion(`Question: ${question}`);
+    const userAnswer = getAnswer();
+    hasWon = isUserRight(userAnswer, rightAnswer);
+    if (hasWon) {
+      sayCorrect();
+      roundsCount -= 1;
+    } else {
+      sayWrong(userAnswer, rightAnswer, userName);
+      roundsCount = 0;
+    }
+  }
+  if (hasWon) {
+    congratulateUser(userName);
+  }
+}
+
 export {
   welcomeUser,
-  explainRule,
-  getRandomNumber,
-  askQuestion,
-  getAnswer,
-  isUserRight,
-  sayCorrect,
-  sayWrong,
-  congratulateUser,
-  getRandomIndex,
   welcomeMessage,
+  getRandomNumber,
+  runGame,
+  getRandomIndex,
 };

@@ -1,54 +1,21 @@
-import { askName, sayHello } from '../cli.js';
-import {
-  welcomeUser,
-  explainRule,
-  getRandomNumber,
-  askQuestion,
-  getAnswer,
-  isUserRight,
-  sayCorrect,
-  sayWrong,
-  congratulateUser,
-  welcomeMessage,
-} from '../index.js';
+import { getRandomNumber, runGame } from '../index.js';
+
+const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(number) {
-  if (number % 2 === 0) {
-    return true;
-  }
+  if (number % 2 === 0) return true;
   return false;
 }
 
 function getRightAnswer(number) {
-  const rightAnswer = isEven(number) ? 'yes' : 'no';
-  return rightAnswer;
+  return isEven(number) ? 'yes' : 'no';
 }
 
-function playGame() {
-  const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-  let roundsCount = 3;
-  let hasWon;
-  welcomeUser(welcomeMessage);
-  const usersName = askName();
-  sayHello(usersName);
-  explainRule(rule);
-  while (roundsCount > 0) {
-    const randomNumber = getRandomNumber(0, 200);
-    askQuestion(`Question: ${randomNumber}`);
-    const usersAnswer = getAnswer();
-    const rightAnswer = getRightAnswer(randomNumber);
-    hasWon = isUserRight(usersAnswer, rightAnswer);
-    if (hasWon) {
-      sayCorrect();
-      roundsCount -= 1;
-    } else {
-      sayWrong(usersAnswer, rightAnswer, usersName);
-      roundsCount = 0;
-    }
-  }
-  if (hasWon) {
-    congratulateUser(usersName);
-  }
+function getQuestionAndRightAnswer() {
+  const randomNumber = getRandomNumber(0, 200);
+  const question = `${randomNumber}`;
+  const rightAnswer = getRightAnswer(randomNumber);
+  return { question, rightAnswer };
 }
 
-export default playGame;
+export default () => runGame(rule, getQuestionAndRightAnswer);

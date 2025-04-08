@@ -1,16 +1,6 @@
-import { askName, sayHello } from '../cli.js';
-import {
-  welcomeUser,
-  explainRule,
-  getRandomNumber,
-  askQuestion,
-  getAnswer,
-  isUserRight,
-  sayCorrect,
-  sayWrong,
-  congratulateUser,
-  welcomeMessage,
-} from '../index.js';
+import { getRandomNumber, runGame } from '../index.js';
+
+const rule = 'Find the greatest common divisor of given numbers.';
 
 function getGreaterNumber(number1, number2) {
   return number1 > number2 ? number1 : number2;
@@ -40,35 +30,15 @@ function getGreatestCommonDivisor(number1, number2) {
 }
 
 function getRightAnswer(number1, number2) {
-  const rightAnswer = getGreatestCommonDivisor(number1, number2);
-  return rightAnswer;
+  return getGreatestCommonDivisor(number1, number2);
 }
 
-function playGame() {
-  let roundsCount = 3;
-  let hasWon;
-  welcomeUser(welcomeMessage);
-  const usersName = askName();
-  sayHello(usersName);
-  explainRule('Find the greatest common divisor of given numbers.');
-  while (roundsCount > 0) {
-    const randomNumber1 = getRandomNumber(1, 200);
-    const randomNumber2 = getRandomNumber(1, 200);
-    askQuestion(`Question: ${randomNumber1} ${randomNumber2}`);
-    const usersAnswer = getAnswer();
-    const rightAnswer = getRightAnswer(randomNumber1, randomNumber2);
-    hasWon = isUserRight(usersAnswer, rightAnswer);
-    if (hasWon) {
-      sayCorrect();
-      roundsCount -= 1;
-    } else {
-      sayWrong(usersAnswer, rightAnswer, usersName);
-      roundsCount = 0;
-    }
-  }
-  if (hasWon) {
-    congratulateUser(usersName);
-  }
+function getQuestionAndRightAnswer() {
+  const randomNumber1 = getRandomNumber(1, 200);
+  const randomNumber2 = getRandomNumber(1, 200);
+  const question = `${randomNumber1} ${randomNumber2}`;
+  const rightAnswer = getRightAnswer(randomNumber1, randomNumber2);
+  return { question, rightAnswer };
 }
 
-export default playGame;
+export default () => runGame(rule, getQuestionAndRightAnswer);
