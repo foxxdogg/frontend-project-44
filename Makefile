@@ -31,3 +31,10 @@ format:
 	npx prettier --write .
 	npx eslint --fix .
 	
+test:
+	npm test
+
+test-coverage:
+	npm test -- --coverage --coverage.provider=v8
+
+.PHONY: test
