@@ -11,18 +11,11 @@ function checkDivisors(number) {
   return true;
 }
 
-function isTwoOrThree(number) {
-  if (number === 2 || number === 3) {
-    return true;
-  }
-  return false;
-}
-
 function isPrimeNumber(number) {
   let isPrime = true;
   if (number < 2) {
     isPrime = false;
-  } else if (isTwoOrThree(number)) {
+  } else if (number === 2 || number === 3) {
     isPrime = true;
   } else if (number % 2 === 0 || number % 3 === 0) {
     isPrime = false;
@@ -32,14 +25,10 @@ function isPrimeNumber(number) {
   return isPrime;
 }
 
-function getRightAnswer(number) {
-  return isPrimeNumber(number) ? 'yes' : 'no';
-}
-
 function getQuestionAndRightAnswer() {
   const randomNumber = getRandomNumber(0, 100);
   const question = `${randomNumber}`;
-  const rightAnswer = getRightAnswer(randomNumber);
+  const rightAnswer = isPrimeNumber(randomNumber) ? 'yes' : 'no';
   return { question, rightAnswer };
 }
 

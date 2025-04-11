@@ -1,4 +1,4 @@
-import { getRandomNumber, getRandomIndex, runGame } from '../index.js';
+import { getRandomNumber, runGame } from '../index.js';
 
 const rule = 'What number is missing in the progression?';
 
@@ -10,24 +10,15 @@ function getProgression(firstNum, step, length) {
   return progression;
 }
 
-function hideRightAnswer(array, index) {
-  array.splice(index, 1, '..');
-  return array;
-}
-
-function getRightAnswer(array, index) {
-  return array[index];
-}
-
 function getQuestionAndRightAnswer() {
   const progression = getProgression(
     getRandomNumber(1, 100),
     getRandomNumber(1, 10),
     10,
   );
-  const randomIndex = getRandomIndex(progression);
-  const rightAnswer = getRightAnswer(progression, randomIndex);
-  hideRightAnswer(progression, randomIndex);
+  const randomIndex = getRandomNumber(0, progression.length - 1);
+  const rightAnswer = progression[randomIndex];
+  progression.splice(randomIndex, 1, '..');
   const question = progression.join(' ');
   return { question, rightAnswer };
 }

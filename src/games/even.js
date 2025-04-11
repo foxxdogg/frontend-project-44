@@ -7,14 +7,10 @@ function isEven(number) {
   return false;
 }
 
-function getRightAnswer(number) {
-  return isEven(number) ? 'yes' : 'no';
-}
-
 function getQuestionAndRightAnswer() {
   const randomNumber = getRandomNumber(0, 200);
   const question = `${randomNumber}`;
-  const rightAnswer = getRightAnswer(randomNumber);
+  const rightAnswer = isEven(randomNumber) ? 'yes' : 'no';
   return { question, rightAnswer };
 }
 

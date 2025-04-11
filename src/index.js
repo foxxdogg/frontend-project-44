@@ -1,79 +1,36 @@
 import readlineSync from 'readline-sync';
-import { askName, sayHello } from './cli.js';
 
 const welcomeMessage = 'Welcome to the Brain Games!';
-
-function welcomeUser(welcome) {
-  console.log(welcome);
-}
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function explainRule(rule) {
-  console.log(rule);
-}
-
-function askQuestion(question) {
-  console.log(question);
-}
-
-function getAnswer() {
-  return readlineSync.question('Your answer: ');
-}
-
-function sayCorrect() {
-  console.log('Correct!');
-}
-
-function sayWrong(userAnswer, rightAnswer, userName) {
-  console.log(
-    `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`,
-  );
-}
-
-function congratulateUser(userName) {
-  console.log(`Congratulations, ${userName}!`);
-}
-
-function isUserRight(userAnswer, rightAnswer) {
-  return userAnswer.toString() === rightAnswer.toString();
-}
-
-function getRandomIndex(array) {
-  return getRandomNumber(0, array.length - 1);
-}
-
 function runGame(rule, getQuestionAndRightAnswer) {
   let roundsCount = 3;
   let hasWon;
-  welcomeUser(welcomeMessage);
-  const userName = askName();
-  sayHello(userName);
-  explainRule(rule);
+  console.log(welcomeMessage);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+  console.log(rule);
   while (roundsCount > 0) {
     const { question, rightAnswer } = getQuestionAndRightAnswer();
-    askQuestion(`Question: ${question}`);
-    const userAnswer = getAnswer();
-    hasWon = isUserRight(userAnswer, rightAnswer);
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    hasWon = userAnswer.toString() === rightAnswer.toString();
     if (hasWon) {
-      sayCorrect();
+      console.log('Correct!');
       roundsCount -= 1;
     } else {
-      sayWrong(userAnswer, rightAnswer, userName);
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`,
+      );
       roundsCount = 0;
     }
   }
   if (hasWon) {
-    congratulateUser(userName);
+    console.log(`Congratulations, ${userName}!`);
   }
 }
 
-export {
-  welcomeUser,
-  welcomeMessage,
-  getRandomNumber,
-  runGame,
-  getRandomIndex,
-};
+export { welcomeMessage, getRandomNumber, runGame };
