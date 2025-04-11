@@ -3,7 +3,6 @@
 [![Actions Status](https://github.com/foxxdogg/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/foxxdogg/frontend-project-44/actions)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6ed1472ba2ef8141f03c/test_coverage)](https://codeclimate.com/github/foxxdogg/frontend-project-44/test_coverage)
 
-
 # «Игры разума»
 
 «Игры разума» — набор из пяти консольных игр, построенных по принципу популярных мобильных приложений для прокачки мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагают пройти ее заново.
